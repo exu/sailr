@@ -19,9 +19,9 @@ function init {
     then
         mkdir $HOME/.sailr/
         curl $json_file -o "$HOME/.sailr/sailr.json"
+        echo 'export SAILR_CONFIG=$HOME/.sailr/sailr.json' >> ~/.zshrc
     fi
 
-    echo 'export SAILR_CONFIG=$HOME/.sailr/sailr.json' >> ~/.zshrc
 
     echo -e "\nInstalled Sailr as \e[33mcommit-msg\033[0m hook in \e[32m$destination\033[0m."
     echo "For usage see https://github.com/exu/sailr#usage"

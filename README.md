@@ -1,6 +1,6 @@
-![](https://www.codetriage.com/craicoverflow/sailr/badges/users.svg)
+# Sailr (zsh compatible version) 
 
-# Sailr
+Based on [@craicoverflow github version]()
 
 Sailr helps you follow the [Conventional Commits](https://www.conventionalcommits.org) conventional by installing a configurable `commit-msg` into your Git projects.
 
@@ -16,7 +16,7 @@ To use Sailr, you must have [jq](https://stedolan.github.io/jq/download/) instal
 ### Installing
 
 ```sh
-curl -o- https://raw.githubusercontent.com/craicoverflow/sailr/master/scripts/install.sh | bash
+curl -o- https://raw.githubusercontent.com/exu/sailr/master/scripts/install.sh | bash
 ```
 
 ### Uninstalling

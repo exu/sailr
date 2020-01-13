@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 release_tag=master
-sailr_repo="https://github.com/craicoverflow/sailr/tree/$release_tag"
+sailr_repo="https://github.com/exu/sailr/tree/$release_tag"
 
 # checks that jq is usable
 check_jq_exists_and_executable() {
