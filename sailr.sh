@@ -1,10 +1,10 @@
-#!/bin/sh
+#!/bin/zsh
 
 release_tag=master
 sailr_repo="https://github.com/craicoverflow/sailr/tree/$release_tag"
 
 # checks that jq is usable
-function check_jq_exists_and_executable {
+check_jq_exists_and_executable() {
 if ! [ -x "$(command -v jq)" ]; then
   echo -e "\`commit-msg\` hook failed. Please install jq."
   exit 1
@@ -13,14 +13,14 @@ fi
 
 # check if the config file exists
 # if it doesnt we dont need to run the hook
-function check_sailr_config {
+check_sailr_config() {
   if [[ ! -f $CONFIG ]]; then
     echo -e "Sailr config file is missing. To set one see $sailr_repo#usage"
     exit 0
   fi
 }
 
-function set_config {
+set_config() {
   local_config="$PWD/sailr.json"
 
   if [ -f $local_config ]; then
@@ -31,7 +31,7 @@ function set_config {
 }
 
 # set values from config file to variables
-function set_config_values() {
+set_config_values() {
   enabled=$(jq -r .enabled $CONFIG)
 
   if [[ ! $enabled ]]; then
@@ -45,7 +45,7 @@ function set_config_values() {
 }
 
 # build the regex pattern based on the config file
-function build_regex() {
+build_regex() {
   set_config_values
 
   regexp="^("
@@ -66,7 +66,7 @@ function build_regex() {
 
 # Print out a standard error message which explains
 # how the commit message should be structured
-function print_error() {
+print_error() {
   echo -e "\n\e[1m\e[31m[INVALID COMMIT MESSAGE]"
   echo -e "------------------------\033[0m\e[0m"
   echo -e "\e[1mValid types:\e[0m \e[34m${types[@]}\033[0m"
